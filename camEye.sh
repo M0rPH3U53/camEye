@@ -69,7 +69,7 @@ for url in ${urls}; do
     curl -sS -X POST "${url}" \
         -H "Content-Type: application/soap+xml; charset=utf-8" \
         -H 'SOAPAction: "http://www.onvif.org/ver10/device/wsdl/GetDeviceInformation"' \
-        --data-binary @- <<'EOF' > ${dir}/camEye/xml/cameye-${hotes}.xml
+        --data-binary @- <<'EOF' > ${dir}/camEye/xml/onvif-${hotes}.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
               xmlns:tds="http://www.onvif.org/ver10/device/wsdl">
