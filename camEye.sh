@@ -71,4 +71,4 @@ EOF
 done
 
 echo " "
-echo -e "${VERT}[+]${RESET} Sauvegardé --> "${dir}"/ONVIF"
+echo -e "${VERT}[+]${RESET} Sauvegardé --> "${dir}"/camEye"
