@@ -16,7 +16,7 @@ BLANC='\033[1;37m'
 JAUNE='\033[0;33m'
 
 # Cree dossier
-mkdir -p ONVIF
+mkdir -p camEye
 
 # Recupere adresse réseau + CIDR
 IP=$(ip route show | grep -E '^[0-9]' | head -1 | awk '{print $1}')
