@@ -2,6 +2,16 @@
 
 cat <<"EOF"
 
+   . .       . .       . .    .       . .       .   .    . .    
+.+'|=|`+. .+'|=|`+. .+'|=|`+.=|`+. .+'|=|`+. .+'|.+'| .+'|=|`+. 
+|  | `+.| |  | |  | |  | `+ | `+ | |  | `+.| |  ||  | |  | `+.| 
+|  |      |  |=|  | |  |  | |  | | |  |=|`.  `+.`'.+' |  |=|`.  
+|  |      |  | |  | |  |  | |  | | |  | `.|    |  |   |  | `.|  
+|  |    . |  | |  | |  |  | |  | | |  |    .   |  |   |  |    . 
+|  | .+'| |  | |  | |  |  | |  | | |  | .+'|   |  |   |  | .+'| 
+`+.|=|.+' `+.| |..| `+.|  |.|  |+' `+.|=|.+'   |.+'   `+.|=|.+'
+
+
 by M0rPH3U53
       
 EOF
@@ -16,7 +26,7 @@ BLANC='\033[1;37m'
 JAUNE='\033[0;33m'
 
 # Cree dossier
-mkdir -p camEye
+mkdir -p camEye/xml
 
 # Recupere adresse réseau + CIDR
 IP=$(ip route show | grep -E '^[0-9]' | head -1 | awk '{print $1}')
@@ -59,7 +69,7 @@ for url in ${urls}; do
     curl -sS -X POST "${url}" \
         -H "Content-Type: application/soap+xml; charset=utf-8" \
         -H 'SOAPAction: "http://www.onvif.org/ver10/device/wsdl/GetDeviceInformation"' \
-        --data-binary @- <<'EOF' > ${dir}/ONVIF/cameye-${hotes}.xml
+        --data-binary @- <<'EOF' > ${dir}/camEye/xml/cameye-${hotes}.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
               xmlns:tds="http://www.onvif.org/ver10/device/wsdl">
@@ -71,4 +81,4 @@ EOF
 done
 
 echo " "
-echo -e "${VERT}[+]${RESET} Sauvegardé --> "${dir}"/camEye"
+echo -e "${VERT}[+]${RESET} Sauvegardé --> "${dir}"/camEye/xml"
