@@ -44,7 +44,7 @@ read network
 echo " "
 # Découverte réseau & recupere l'url
 echo -ne "🔍 ${BLANC}Scan WS-Discover${RESET}..."
-urls=$(nmap -sU -sC -p 3702 --open ${network} | grep Address | grep -v MAC | awk '{print $3}')
+urls=$(nmap -sU -sC -p 3702 --open ${network} | grep onvif | awk '{print $3}')
 echo -e "${JAUNE}100%${RESET}"
 
 # Verifie si la variable est vide
