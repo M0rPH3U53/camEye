@@ -2,7 +2,7 @@
 
 
 
-Automatisation de la decouverte des camera via WS-Discovery
+Automatisation de la decouverte des camera ONVIF via WS-Discovery
 
 | Outils | URLs |
 | --- | --- |
@@ -42,9 +42,9 @@ by M0rPH3U53
  
 🔍 Scan WS-Discover...100%
  
-[+] Camera
+[+] Camera ONVIF
  
-🎥 http://192.168.56.149:8899/onvif/device_service
+🎥 http://192.168.56.149:8899/onvif/device_service --> onvif-192.168.56.149.xml
  
 [+] Sauvegardé --> /home/m0rph3u5/Desktop/camEye/xml
 ```
