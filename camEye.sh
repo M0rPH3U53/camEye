@@ -41,7 +41,8 @@ echo " "
 echo -ne "${BLEU}[i]${RESET} ${BLANC}Network:${RESET} "
 read network
 
-# Découverte réseau WS-Discover
+echo " "
+# Découverte réseau & recupere l'url
 echo -ne "🔍 ${BLANC}Scan WS-Discover${RESET}..."
 urls=$(nmap -sU -sC -p 3702 --open ${network} | grep Address | grep -v MAC | awk '{print $3}')
 echo -e "${JAUNE}100%${RESET}"
@@ -59,13 +60,13 @@ dir=$(pwd)
 hotes=$(echo ${urls} | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}')
 
 echo " "
-echo -e "${VERT}[+]${RESET} ${BLANC}Camera${RESET}"
+echo -e "${VERT}[+]${RESET} ${BLANC}Camera ONVIF${RESET}"
 echo " "
 echo " "
 
 # Recupere les info systeme de camera
 for url in ${urls}; do
-    echo "🎥 ${url}"
+    echo "🎥 ${url} --> onvif-${hotes}.xml"
     curl -sS -X POST "${url}" \
         -H "Content-Type: application/soap+xml; charset=utf-8" \
         -H 'SOAPAction: "http://www.onvif.org/ver10/device/wsdl/GetDeviceInformation"' \
